@@ -4,29 +4,30 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class App {
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 		
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 		Employee employee = (Employee)context.getBean("employee");
 		
+		// 1
 //		employee.getName();
 		
 //		System.out.println();
 		
+		// 2
 //		employee.creatEmployee("def");
 		
 //		System.out.println();
 		
-		employee.creatDuplicateEmployee("def");
-		employee.creatDuplicateEmployee("def");
+		// 3
+		try {
+			employee.creatDuplicateEmployee("def");
+			employee.creatDuplicateEmployee("def");
+		} catch (Exception e) {
+			System.out.println("Caught!!");
+		}
+		
 //		
-//		System.out.println(employee.getName());
-//		
-//		employee.creatDuplicateEmployee("def");
-		/*
-		 * try { employee.throwException(); } catch (Exception e) { // TODO
-		 * Auto-generated catch block System.out.println("Caught!!!!!!"); }
-		 */
 		
 		
 	}
